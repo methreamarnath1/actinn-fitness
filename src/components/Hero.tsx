@@ -2,28 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Phone, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-gym.jpg";
-
 const Hero = () => {
   const navigate = useNavigate();
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background - Image on mobile, Video on desktop */}
       <div className="absolute inset-0 z-0">
         {/* Mobile Background Image */}
-        <img 
-          src={heroImage}
-          alt="Actinn Fitness Gym"
-          className="md:hidden w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Actinn Fitness Gym" className="md:hidden w-full h-full object-cover" />
         {/* Desktop Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="hidden md:block w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="hidden md:block w-full h-full object-cover">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
@@ -54,19 +41,10 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-red-600 hover:shadow-[0_0_30px_hsl(0_84%_60%/0.5)] transition-all duration-300 text-lg px-8"
-              onClick={() => navigate('/contact')}
-            >
+            <Button size="lg" className="bg-gradient-to-r from-primary to-red-600 hover:shadow-[0_0_30px_hsl(0_84%_60%/0.5)] transition-all duration-300 text-lg px-8" onClick={() => navigate('/contact')}>
               Join Now
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-primary/50 hover:bg-primary/10 text-lg px-8"
-              onClick={() => window.location.href = 'tel:07330922633'}
-            >
+            <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 text-lg px-8" onClick={() => window.location.href = 'tel:07330922633'}>
               <Phone className="mr-2 h-5 w-5" />
               Call Us
             </Button>
@@ -79,7 +57,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-              <span>073309 22633</span>
+              <span>073309 22633 </span>
             </div>
           </div>
         </div>
@@ -87,8 +65,6 @@ const Hero = () => {
 
       {/* Animated gradient overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-background to-transparent z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
