@@ -2,6 +2,8 @@ import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const reviews = [
   {
@@ -55,12 +57,30 @@ const reviews = [
 ];
 
 const Reviews = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const reviewsPerPage = 3;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + reviewsPerPage) % reviews.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const visibleReviews = reviews.slice(currentIndex, currentIndex + reviewsPerPage);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h1 className="text-4xl md:text-6xl font-bold mb-4 font-pirata">
               <span className="bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
                 Member Reviews
@@ -78,30 +98,61 @@ const Reviews = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               See what our members have to say about their experience at Actinn Fitness
             </p>
+          </motion.div>
+
+          <div className="max-w-7xl mx-auto min-h-[400px] relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {visibleReviews.map((review, index) => (
+                  <Card key={currentIndex + index} className="border-border hover:border-primary transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="font-bold text-lg">{review.name}</h3>
+                          <p className="text-sm text-muted-foreground">{review.date}</p>
+                        </div>
+                        <div className="flex">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{review.review}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: Math.ceil(reviews.length / reviewsPerPage) }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i * reviewsPerPage)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    Math.floor(currentIndex / reviewsPerPage) === i
+                      ? "bg-primary w-8"
+                      : "bg-muted-foreground/30"
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {reviews.map((review, index) => (
-              <Card key={index} className="border-border hover:border-primary transition-colors">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="font-bold text-lg">{review.name}</h3>
-                      <p className="text-sm text-muted-foreground">{review.date}</p>
-                    </div>
-                    <div className="flex">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">{review.review}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-12"
+          >
             <a
               href="https://share.google/S3do7YNtNTOzPjOpA"
               target="_blank"
@@ -111,7 +162,7 @@ const Reviews = () => {
               View all reviews on Google
               <span>→</span>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Footer />
