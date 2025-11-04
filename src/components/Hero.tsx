@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Instagram } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-gym.jpg";
 const Hero = () => {
@@ -57,8 +57,17 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-              <span>073309 22633 </span>
+              <span>073309 22633 </span>
             </div>
+            <a 
+              href="https://www.instagram.com/actinnfitness" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
+            >
+              <Instagram className="h-5 w-5 text-primary flex-shrink-0" />
+              <span>@actinnfitness</span>
+            </a>
           </div>
         </div>
       </div>
