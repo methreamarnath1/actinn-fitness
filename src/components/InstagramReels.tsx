@@ -43,7 +43,7 @@ const InstagramReels = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="flex justify-center"
             >
-              <div className="relative w-full max-w-[350px] aspect-[9/16] rounded-lg overflow-hidden shadow-lg bg-black">
+              <div className="relative w-full max-w-[350px] aspect-[9/16] rounded-lg overflow-hidden shadow-lg bg-background border border-border">
                 <iframe
                   src={`${reel}embed/captioned`}
                   className="absolute inset-0 w-full h-full"
@@ -52,6 +52,7 @@ const InstagramReels = () => {
                   allowTransparency
                   allow="encrypted-media"
                   title={`Instagram Reel ${index + 1}`}
+                  style={{ colorScheme: 'dark' }}
                 />
               </div>
             </motion.div>
