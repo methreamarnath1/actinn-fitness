@@ -7,17 +7,6 @@ const InstagramReels = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Load Instagram embed script
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "//www.instagram.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const reels = [
     "https://www.instagram.com/reel/DM7B-CcSvEl/",
@@ -54,22 +43,17 @@ const InstagramReels = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="flex justify-center"
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={reel}
-                data-instgrm-version="14"
-                style={{
-                  background: "#FFF",
-                  border: 0,
-                  borderRadius: "3px",
-                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "1px",
-                  maxWidth: "540px",
-                  minWidth: "326px",
-                  padding: 0,
-                  width: "99.375%",
-                }}
-              />
+              <div className="relative w-full max-w-[350px] aspect-[9/16] rounded-lg overflow-hidden shadow-lg bg-black">
+                <iframe
+                  src={`${reel}embed/captioned`}
+                  className="absolute inset-0 w-full h-full"
+                  frameBorder="0"
+                  scrolling="no"
+                  allowTransparency
+                  allow="encrypted-media"
+                  title={`Instagram Reel ${index + 1}`}
+                />
+              </div>
             </motion.div>
           ))}
         </div>

@@ -6,10 +6,11 @@ const Footer = () => {
       <div className="container px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4 font-pirata font-normal tracking-wider">
-              <span className="text-foreground">ACTINN</span>
-              <span className="text-primary"> FITNESS</span>
-            </h3>
+            <img 
+              src="/logo.jpg" 
+              alt="Actinn Fitness Logo" 
+              className="h-20 w-20 object-contain rounded-full mb-4"
+            />
             <p className="text-muted-foreground">
               Hyderabad's premier gym for all-round health & fitness.
             </p>

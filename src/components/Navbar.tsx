@@ -24,10 +24,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-pirata font-normal">
-              <span className="text-foreground">ACTINN</span>
-              <span className="text-primary"> FITNESS</span>
-            </span>
+            <img 
+              src="/logo.jpg" 
+              alt="Actinn Fitness Logo" 
+              className="h-14 w-14 object-contain rounded-full"
+            />
           </Link>
 
           {/* Desktop Navigation */}
