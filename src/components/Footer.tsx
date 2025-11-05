@@ -53,7 +53,7 @@ const Footer = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card border border-border hover:border-primary/50 text-foreground hover:text-primary transition-all"
             >
               <Instagram className="h-5 w-5" />
-              @actinnfitness
+              @actinn_fitness
             </a>
           </div>
         </div>

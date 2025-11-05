@@ -60,13 +60,13 @@ const Hero = () => {
               <span>073309 22633 </span>
             </div>
             <a 
-              href="https://www.instagram.com/actinnfitness" 
+              href="https://www.instagram.com/actinn_fitness" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Instagram className="h-5 w-5 text-primary flex-shrink-0" />
-              <span>@actinnfitness</span>
+              <span>@actinn_fitness</span>
             </a>
           </div>
         </div>

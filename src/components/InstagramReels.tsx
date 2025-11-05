@@ -66,13 +66,13 @@ const InstagramReels = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://www.instagram.com/actinnfitness"
+            href="https://www.instagram.com/actinn_fitness"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg"
           >
             <Instagram className="h-5 w-5" />
-            @actinnfitness
+            @actinn_fitness
           </a>
         </motion.div>
       </div>

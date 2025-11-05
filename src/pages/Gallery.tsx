@@ -2,21 +2,32 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-gym.jpg";
-import trainerImage from "@/assets/trainer.jpg";
+import benchpressImage from "@/assets/benchpress.png";
+import buildingImage from "@/assets/building.jpg";
+import dumbleImage from "@/assets/dumblle.png";
 import equipmentImage from "@/assets/equipment.jpg";
+import heroGymImage from "@/assets/hero-gym.jpg";
+import image2Image from "@/assets/image2.png";
+import image3Image from "@/assets/image3.png";
+import img1Image from "@/assets/img1.png";
+import pullupBarImage from "@/assets/pullup-bar.png";
+import pullupbarImage from "@/assets/pullupbar.png";
 import saunaImage from "@/assets/sauna.jpg";
-
+import trainerImage from "@/assets/trainer.jpg";
 const galleryImages = [
-  { src: heroImage, title: "Main Gym Floor", category: "Facilities" },
-  { src: equipmentImage, title: "Premium Equipment", category: "Equipment" },
-  { src: trainerImage, title: "Personal Training", category: "Training" },
-  { src: saunaImage, title: "Luxury Sauna", category: "Amenities" },
-  { src: heroImage, title: "Cardio Zone", category: "Facilities" },
-  { src: equipmentImage, title: "Strength Training Area", category: "Equipment" },
-  { src: trainerImage, title: "Group Classes", category: "Training" },
-  { src: saunaImage, title: "Relaxation Area", category: "Amenities" },
-  { src: heroImage, title: "Free Weights Section", category: "Equipment" },
+  // { src: heroGymImage, title: "Main Gym Floor", category: "Facilities" },
+  // { src: equipmentImage, title: "Premium Equipment", category: "Equipment" },
+  // { src: trainerImage, title: "Personal Training", category: "Training" },
+  // { src: saunaImage, title: "Luxury Sauna", category: "Amenities" },
+  { src: buildingImage, title: "Modern Gym Building", category: "Facilities" },
+  { src: benchpressImage, title: "Bench Press Station", category: "Equipment" },
+  { src: dumbleImage, title: "Dumbbell Zone", category: "Equipment" },
+  { src: img1Image, title: "Cardio Area", category: "Facilities" },
+  { src: image2Image, title: "Workout Session", category: "Training" },
+  { src: image3Image, title: "Strength Training", category: "Equipment" },
+  { src: pullupBarImage, title: "Pull-Up Bar", category: "Equipment" },
+  { src: pullupbarImage, title: "Bodyweight Training", category: "Training" },
+  
 ];
 
 const Gallery = () => {

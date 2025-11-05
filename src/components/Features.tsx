@@ -2,14 +2,15 @@ import { Dumbbell, Users, Award, Flame } from "lucide-react";
 import equipmentImage from "@/assets/equipment.jpg";
 import saunaImage from "@/assets/sauna.jpg";
 import trainerImage from "@/assets/trainer.jpg";
-
+import pullupBarImage from "@/assets/pullup-bar.png";
+import image from "@/assets/image2.png";
 const Features = () => {
   const features = [
     {
       icon: Dumbbell,
       title: "Top Equipment",
       description: "State-of-the-art fitness equipment for all your training needs",
-      image: equipmentImage
+      image: pullupBarImage
     },
     {
       icon: Users,
@@ -19,9 +20,9 @@ const Features = () => {
     },
     {
       icon: Flame,
-      title: "Luxury Sauna",
+      title: "Environmental Gym",
       description: "Relax and rejuvenate in our premium sauna facility",
-      image: saunaImage
+      image: image
     },
     {
       icon: Award,

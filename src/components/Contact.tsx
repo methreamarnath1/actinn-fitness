@@ -62,12 +62,12 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Follow Us</h3>
                   <a 
-                    href="https://www.instagram.com/actinnfitness/" 
+                    href="https://www.instagram.com/actinn_fitness/" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground hover:text-primary transition-colors font-medium"
                   >
-                    @actinnfitness
+                    @actinn_fitness
                   </a>
                 </div>
               </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                 asChild
               >
                 <a 
-                  href="https://share.google/S3do7YNtNTOzPjOpA" 
+                  href="https://maps.app.goo.gl/GbBe4PAkWvWHLUH9A" 
                   target="_blank"
                   rel="noopener noreferrer"
                 >
