@@ -1,7 +1,14 @@
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const Testimonials = () => {
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
   const reviews = [
     {
       name: "Sandeep Chary",
@@ -38,24 +45,32 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {reviews.map((review, index) => (
-            <Card 
-              key={index}
-              className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_hsl(0_84%_60%/0.15)]"
-            >
-              <CardContent className="p-6">
-                <div className="flex mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-foreground mb-4 text-lg leading-relaxed">"{review.text}"</p>
-                <p className="text-primary font-semibold">- {review.name}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full max-w-4xl mx-auto"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
+          <CarouselContent>
+            {reviews.map((review, index) => (
+              <CarouselItem key={index}>
+                <Card className="bg-card border-border">
+                  <CardContent className="p-8 md:p-12">
+                    <div className="flex justify-center mb-6">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="h-6 w-6 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <p className="text-foreground mb-6 text-xl md:text-2xl leading-relaxed text-center">"{review.text}"</p>
+                    <p className="text-primary font-semibold text-lg text-center">- {review.name}</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </section>
   );
