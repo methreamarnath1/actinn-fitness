@@ -1,17 +1,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Instagram } from "lucide-react";
 
 const InstagramReels = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Example Instagram reel embed codes - replace with actual ones
+  // Load Instagram embed script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const reels = [
-    "https://www.instagram.com/p/EXAMPLE1/embed",
-    "https://www.instagram.com/p/EXAMPLE2/embed",
-    "https://www.instagram.com/p/EXAMPLE3/embed",
+    "https://www.instagram.com/reel/DM7B-CcSvEl/",
+    "https://www.instagram.com/reel/DOJbg-lkkL-/",
+    "https://www.instagram.com/reel/DKnEMSSz0kp/",
   ];
 
   return (
@@ -41,16 +52,23 @@ const InstagramReels = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
+              className="flex justify-center"
             >
-              <iframe
-                src={reel}
-                className="w-full h-full"
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency
-                allow="encrypted-media"
-                title={`Instagram Reel ${index + 1}`}
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={reel}
+                data-instgrm-version="14"
+                style={{
+                  background: "#FFF",
+                  border: 0,
+                  borderRadius: "3px",
+                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                  margin: "1px",
+                  maxWidth: "540px",
+                  minWidth: "326px",
+                  padding: 0,
+                  width: "99.375%",
+                }}
               />
             </motion.div>
           ))}
