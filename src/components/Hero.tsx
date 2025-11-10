@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-gym.jpg";
 const Hero = () => {
   const navigate = useNavigate();
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  return <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Background - Image on mobile, Video on desktop */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full h-full">
         {/* Mobile Background Image */}
-        <img src={heroImage} alt="Actinn Fitness Gym" className="md:hidden w-full h-full object-cover" />
+        <img src={heroImage} alt="Actinn Fitness Gym" className="md:hidden w-full h-full object-cover object-center" />
         {/* Desktop Background Video */}
         <video autoPlay loop muted playsInline className="hidden md:block w-full h-full object-cover">
           <source src="/hero-video.mp4" type="video/mp4" />
@@ -18,7 +18,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-4 py-12 md:py-20">
+      <div className="container relative z-10 px-4 py-8 md:py-20 w-full">
         <div className="max-w-3xl md:max-w-2xl lg:max-w-3xl mx-auto text-center md:text-left md:mx-0">
           <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 mb-4 md:mb-6 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full">
             <span className="text-primary font-semibold text-sm md:text-base">★ 4.9 Rating on Google</span>

@@ -23,13 +23,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-2">
             <img 
               src="/logo.jpg" 
               alt="Actinn Fitness Logo" 
-              className="h-14 w-14 object-contain rounded-full"
+              className="h-10 w-10 md:h-14 md:w-14 object-contain rounded-full flex-shrink-0"
             />
-            <span className="text-2xl font-pirata font-normal">
+            <span className="text-xl md:text-2xl font-pirata font-normal whitespace-nowrap">
               <span className="text-foreground">ACTINN</span>
               <span className="text-primary"> FITNESS</span>
             </span>
